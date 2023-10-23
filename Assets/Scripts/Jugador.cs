@@ -22,9 +22,9 @@ public class NewBehaviourScript : MonoBehaviour
         float cameraWidth = screenAspect * cameraHeight;
 
         // Calcula el tamaño del jugador
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        float jugadorWidth = spriteRenderer.bounds.size.x / 2f;
-        float jugadorHeight = spriteRenderer.bounds.size.y / 2f;
+        BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
+        float jugadorWidth = boxCollider2D.bounds.size.x / 2f;
+        float jugadorHeight = boxCollider2D.bounds.size.y / 2f;
 
         minX = -cameraWidth + jugadorWidth;
         maxX = cameraWidth - jugadorWidth;
