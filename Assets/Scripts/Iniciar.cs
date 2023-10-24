@@ -16,7 +16,7 @@ public class CambiarEscena : MonoBehaviour
 
     public void CambiarAEscenaInfo()
     {
-        SceneManager.LoadScene("Info"); // cambiem a la escena Info
+        SceneManager.LoadScene("Instruccions"); // cambiem a la escena Info
     }
     public void CambiarAEscenaMenu()
     {

@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ranking.unity
     guid: 0921789e50e0fb54693f10ada2d24b3e
+  - enabled: 1
+    path: Assets/Scenes/Instruccions.unity
+    guid: f7a3b0dd85009284b96e63d69ea6a7a0
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: bd2f4358c8a49244b98c7bbea96a0af2
   m_configObjects: {}
