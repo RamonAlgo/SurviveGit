@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -59,8 +60,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (objecteTocat.tag == "Monster")
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("Game Over");
         }
     }
-
-
 }
