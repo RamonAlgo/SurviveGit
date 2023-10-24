@@ -51,4 +51,16 @@ public class NewBehaviourScript : MonoBehaviour
         transform.position = nuevaPosicion;
 
     }
+
+     // Agrega este método para detectar colisiones
+
+    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    {
+        if (objecteTocat.tag == "Monster")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
