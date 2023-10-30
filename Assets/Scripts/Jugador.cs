@@ -14,8 +14,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        velocidadHorizontal = 6f;
-        velocidadVertical = 6f;
+        velocidadHorizontal = 8f;
+        velocidadVertical = 8f;
 
         // Calcula los límites basados en el tamaño de la pantalla
         float screenAspect = (float)Screen.width / Screen.height;

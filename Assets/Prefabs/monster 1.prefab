@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5423054641036774410}
   - component: {fileID: 3941367332020961882}
   - component: {fileID: 1555533377730978937}
-  - component: {fileID: 3321121474284615473}
+  - component: {fileID: -7860181586521361525}
   - component: {fileID: 3251262604507884407}
   - component: {fileID: 4823353249202557681}
   m_Layer: 0
-  m_Name: monster
+  m_Name: monster 1
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,20 +109,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3321121474284615473
+--- !u!114 &-7860181586521361525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9150640842024457822}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf48cef53b556674e86ec291e3d56833, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a6b6034a253ae3408fb933e54233de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  amplitude: 0.0006
+  moveSpeed: 2
+  frequency: 1
 --- !u!50 &3251262604507884407
 Rigidbody2D:
   serializedVersion: 4
