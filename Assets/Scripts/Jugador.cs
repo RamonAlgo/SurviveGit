@@ -84,4 +84,9 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Game Over");
         }
     }
+    public bool MirandoDerecha()
+    {
+        return mirandoDerecha;
+    }
+
 }
