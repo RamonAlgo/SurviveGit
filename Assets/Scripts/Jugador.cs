@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float velocidadHorizontal;
     public float velocidadVertical;
@@ -11,6 +11,10 @@ public class NewBehaviourScript : MonoBehaviour
     private float minX; // Límite mínimo en el eje X
     private float maxY;
     private float minY;
+
+    private Transform playerTransform; // Referencia al transform del jugador
+    private bool mirandoDerecha = true; // Variable para controlar la dirección del jugador
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,9 @@ public class NewBehaviourScript : MonoBehaviour
         maxX = cameraWidth - jugadorWidth;
         minY = -cameraHeight + jugadorHeight;
         maxY = cameraHeight - jugadorHeight;
+
+        // Obtiene la referencia al transform del jugador
+        playerTransform = transform;
     }
 
     // Update is called once per frame
@@ -41,7 +48,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         Vector2 direccionIndicada = new Vector2(direccionHorizontal, direccionVertical).normalized; // Utiliza ambas direcciones
 
-        Vector2 nuevaPosicion = transform.position;
+        Vector2 nuevaPosicion = playerTransform.position;
 
         nuevaPosicion += direccionIndicada * new Vector2(velocidadHorizontal, velocidadVertical) * Time.deltaTime;
 
@@ -49,11 +56,25 @@ public class NewBehaviourScript : MonoBehaviour
         nuevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, minX, maxX);
         nuevaPosicion.y = Mathf.Clamp(nuevaPosicion.y, minY, maxY);
 
-        transform.position = nuevaPosicion;
+        // Actualiza la posición del jugador
+        playerTransform.position = nuevaPosicion;
 
+        // Voltea el jugador según la dirección
+        if (direccionHorizontal > 0 && !mirandoDerecha)
+        {
+            // Si se está moviendo a la derecha y no mira a la derecha, voltea el jugador
+            mirandoDerecha = true;
+            playerTransform.localScale = new Vector3(Mathf.Abs(playerTransform.localScale.x), playerTransform.localScale.y, playerTransform.localScale.z);
+        }
+        else if (direccionHorizontal < 0 && mirandoDerecha)
+        {
+            // Si se está moviendo a la izquierda y mira a la derecha, voltea el jugador
+            mirandoDerecha = false;
+            playerTransform.localScale = new Vector3(-Mathf.Abs(playerTransform.localScale.x), playerTransform.localScale.y, playerTransform.localScale.z);
+        }
     }
 
-     // Agrega este método para detectar colisiones
+    // Agrega este método para detectar colisiones
 
     private void OnTriggerEnter2D(Collider2D objecteTocat)
     {
