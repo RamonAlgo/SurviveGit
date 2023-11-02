@@ -12,7 +12,25 @@ public class DestruirFueraDeCamara : MonoBehaviour
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
             // Destruye la bala si está fuera de la cámara
-            Destroy(gameObject);
+            DestruirBala();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            // Destruye el objeto con etiqueta "Monster" que toca
+            Destroy(other.gameObject);
+
+            // Destruye la bala
+            DestruirBala();
+        }
+    }
+
+    private void DestruirBala()
+    {
+        // Destruye la bala actual
+        Destroy(gameObject);
     }
 }
