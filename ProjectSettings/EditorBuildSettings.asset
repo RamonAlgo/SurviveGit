@@ -4,23 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/2D Monsters Pack Animated/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 1e53cf50981fc06458f4e0222798cb84
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f735c1cfdfacdaa46b35c6c8dd96b9c0
-  - enabled: 1
-    path: Assets/Scenes/Ranking.unity
-    guid: 0921789e50e0fb54693f10ada2d24b3e
-  - enabled: 1
-    path: Assets/Scenes/Instruccions.unity
-    guid: f7a3b0dd85009284b96e63d69ea6a7a0
-  - enabled: 1
-    path: Assets/Scenes/Game Over.unity
-    guid: bd2f4358c8a49244b98c7bbea96a0af2
+  m_Scenes: []
   m_configObjects: {}
