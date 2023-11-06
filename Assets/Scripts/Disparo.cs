@@ -5,7 +5,7 @@ using UnityEngine;
 public class Disparo : MonoBehaviour
 {
     public GameObject balaPrefab; // Prefab de la bala
-    public float velocidadBala = 10f;
+    public float velocidadBala = 20f;
     private PlayerController playerController;
 
     private void Start()

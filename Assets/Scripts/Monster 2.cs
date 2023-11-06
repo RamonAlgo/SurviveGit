@@ -5,14 +5,16 @@ using UnityEngine;
 public class Monster2 : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    public float frequency = 1.0f; // Controla la frecuencia del movimiento sinusoidal
+    public float frequency = 1.0f; // Controla la frecuencia del movimiento S
     private Transform player; // El transform del jugador
     private Vector3 initialPosition; // La posición inicial del monstruo
+    private float startTime;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
         initialPosition = transform.position;
+        startTime = Time.time;
     }
 
     private void Update()
@@ -22,13 +24,9 @@ public class Monster2 : MonoBehaviour
             // Calcula la dirección hacia el jugador
             Vector3 direction = (player.position - transform.position).normalized;
 
-            // Calcula el movimiento sinusoidal en X y Y
-            float sinX = Mathf.Sin(Time.time * frequency);
-            float cosY = Mathf.Cos(Time.time * frequency);
-
-            // Calcula el desplazamiento en el eje X e Y
-            float offsetX = sinX * 2.0f; // Controla el tamaño del patrón
-            float offsetY = cosY * 1.0f; // Controla el tamaño del patrón
+            // Calcula el desplazamiento en el eje X e Y en forma de "S"
+            float offsetX = Mathf.Sin((Time.time - startTime) * frequency);
+            float offsetY = Mathf.Sin((Time.time - startTime) * frequency * 2); // Ajusta la frecuencia para la forma de "S"
 
             // Aplica la dirección hacia el jugador
             Vector3 movement = direction + new Vector3(offsetX, offsetY, 0f);
@@ -36,7 +34,7 @@ public class Monster2 : MonoBehaviour
             // Normaliza la dirección
             movement.Normalize();
 
-            // Mueve el monstruo hacia el jugador en el patrón de movimiento sinusoidal
+            // Mueve el monstruo hacia el jugador en el patrón de movimiento "S"
             transform.Translate(movement * moveSpeed * Time.deltaTime);
         }
     }
