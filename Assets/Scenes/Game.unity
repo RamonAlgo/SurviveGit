@@ -7976,9 +7976,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78341bbdafb79fd4b9c87a84b7c45149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   monsterPrefab: {fileID: 9150640842024457822, guid: f5cec3972f3cb7c4fa8abb4ead1947d5,
     type: 3}
   spawnInterval: 1
+=======
+  monsterPrefab: {fileID: 9150640842024457822, guid: f5cec3972f3cb7c4fa8abb4ead1947d5, type: 3}
+  spawnInterval: 10
+>>>>>>> Inici1
 --- !u!4 &1374373222
 Transform:
   m_ObjectHideFlags: 0
@@ -72850,9 +72855,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78341bbdafb79fd4b9c87a84b7c45149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   monsterPrefab: {fileID: 9150640842024457822, guid: 72e459bd17aeb494cb359c96b8f3a044,
     type: 3}
   spawnInterval: 2
+=======
+  monsterPrefab: {fileID: 9150640842024457822, guid: 72e459bd17aeb494cb359c96b8f3a044, type: 3}
+  spawnInterval: 1
+>>>>>>> Inici1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
