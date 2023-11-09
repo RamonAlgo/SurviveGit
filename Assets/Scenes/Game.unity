@@ -7583,7 +7583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balaPrefab: {fileID: 5493138523879853507, guid: 136175e693af59e46ad7444d7167a0f3, type: 3}
-  velocidadBala: 10
+  velocidadBala: 40
 --- !u!1 &540979785
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,6 +7734,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e53e5f6023c724f8f2df1e6c6f173c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &981548756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981548758}
+  - component: {fileID: 981548757}
+  m_Layer: 0
+  m_Name: Monster Spawn 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &981548757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981548756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78341bbdafb79fd4b9c87a84b7c45149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 8112265646620697276, guid: 1242fb7d077a15d4dba4783036e6608d, type: 3}
+  spawnInterval: 15
+--- !u!4 &981548758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981548756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6390984, y: 1.4801065, z: 4.6279488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218957909
 GameObject:
   m_ObjectHideFlags: 0
@@ -8031,3 +8077,4 @@ SceneRoots:
   - {fileID: 540979787}
   - {fileID: 2011352900}
   - {fileID: 1374373222}
+  - {fileID: 981548758}
