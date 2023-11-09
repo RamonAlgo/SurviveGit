@@ -10,7 +10,7 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
+       player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
     }
 
     private void Update()
