@@ -9,6 +9,6 @@ public class TiempoDePartida : MonoBehaviour
     void Update()
     {
         tiempoTranscurrido += Time.deltaTime;
-        textoTiempo.text = "Tiempo: " + Mathf.Round(tiempoTranscurrido).ToString();
+        textoTiempo.text = "Tiempo: " + Mathf.Round(tiempoTranscurrido).ToString()+"s";
     }
 }
