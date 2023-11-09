@@ -25,3 +25,6 @@ public class Monster : MonoBehaviour
         }
     }
 }
+/*
+ Script jugador
+ */
