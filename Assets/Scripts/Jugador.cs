@@ -7,52 +7,43 @@ public class PlayerController : MonoBehaviour
 {
     public float velocidadHorizontal;
     public float velocidadVertical;
-    private float maxX;  // Límite máximo en el eje X
-    private float minX; // Límite mínimo en el eje X
-    private float maxY;
-    private float minY;
+
+    // Establece los límites como variables públicas para que puedas ajustarlos en el Inspector de Unity
+    public float maxX;  // Límite máximo en el eje X
+    public float minX; // Límite mínimo en el eje X
+    public float maxY;
+    public float minY;
 
     private Transform playerTransform; // Referencia al transform del jugador
     private bool mirandoDerecha = true; // Variable para controlar la dirección del jugador
 
-    // Start is called before the first frame update
     void Start()
     {
         velocidadHorizontal = 8f;
         velocidadVertical = 8f;
 
-        // Calcula los límites basados en el tamaño de la pantalla
-        float screenAspect = (float)Screen.width / Screen.height;
-        float cameraHeight = Camera.main.orthographicSize;
-        float cameraWidth = screenAspect * cameraHeight;
-
-        // Calcula el tamaño del jugador
-        BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
-        float jugadorWidth = boxCollider2D.bounds.size.x / 2f;
-        float jugadorHeight = boxCollider2D.bounds.size.y / 2f;
-
-        minX = -cameraWidth + jugadorWidth;
-        maxX = cameraWidth - jugadorWidth;
-        minY = -cameraHeight + jugadorHeight;
-        maxY = cameraHeight - jugadorHeight;
+        // Establece los límites basados en las coordenadas proporcionadas
+        minX = -88.03f;  // Límite izquierdo
+        maxX = 88.11f;   // Límite derecho
+        minY = -48.43f;  // Límite inferior
+        maxY = 48.90f;   // Límite superior
 
         // Obtiene la referencia al transform del jugador
         playerTransform = transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float direccionHorizontal = Input.GetAxisRaw("Horizontal");
-        float direccionVertical = Input.GetAxisRaw("Vertical");  // Obtén la entrada vertical
+        float direccionVertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 direccionIndicada = new Vector2(direccionHorizontal, direccionVertical).normalized; // Utiliza ambas direcciones
+        Vector2 direccionIndicada = new Vector2(direccionHorizontal, direccionVertical).normalized;
 
         Vector2 nuevaPosicion = playerTransform.position;
 
         nuevaPosicion += direccionIndicada * new Vector2(velocidadHorizontal, velocidadVertical) * Time.deltaTime;
 
-        // Aplica las restricciones en ambos ejes (X e Y)
+        // Aplica las restricciones en ambos ejes (X e Y) con los límites personalizados
         nuevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, minX, maxX);
         nuevaPosicion.y = Mathf.Clamp(nuevaPosicion.y, minY, maxY);
 
@@ -62,19 +53,15 @@ public class PlayerController : MonoBehaviour
         // Voltea el jugador según la dirección
         if (direccionHorizontal > 0 && !mirandoDerecha)
         {
-            // Si se está moviendo a la derecha y no mira a la derecha, voltea el jugador
             mirandoDerecha = true;
             playerTransform.localScale = new Vector3(Mathf.Abs(playerTransform.localScale.x), playerTransform.localScale.y, playerTransform.localScale.z);
         }
         else if (direccionHorizontal < 0 && mirandoDerecha)
         {
-            // Si se está moviendo a la izquierda y mira a la derecha, voltea el jugador
             mirandoDerecha = false;
             playerTransform.localScale = new Vector3(-Mathf.Abs(playerTransform.localScale.x), playerTransform.localScale.y, playerTransform.localScale.z);
         }
     }
-
-    // Agrega este método para detectar colisiones
 
     private void OnTriggerEnter2D(Collider2D objecteTocat)
     {
@@ -84,9 +71,9 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Game Over");
         }
     }
+
     public bool MirandoDerecha()
     {
         return mirandoDerecha;
     }
-
 }
