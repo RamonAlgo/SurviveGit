@@ -2604,8 +2604,8 @@ TextureImporter:
       name: image_118
       rect:
         serializedVersion: 2
-        x: 384
-        y: 704
+        x: 486
+        y: 522
         width: 64
         height: 64
       alignment: 9
@@ -4536,10 +4536,10 @@ TextureImporter:
       name: image_210
       rect:
         serializedVersion: 2
-        x: 896
-        y: 512
-        width: 64
-        height: 64
+        x: 886
+        y: 528
+        width: 79
+        height: 75
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

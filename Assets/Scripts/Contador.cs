@@ -26,7 +26,7 @@ public class Contador : MonoBehaviour
             {
                 PausarJuego();
             }
-        }
+        }*/
     }
 
     public void PausarJuego()
@@ -37,7 +37,7 @@ public class Contador : MonoBehaviour
             juegoPausado = true;
             tiempoPausaInicio = Time.realtimeSinceStartup; // Registrar el inicio de la pausa
             MostrarTextoEnPantalla("Juego Pausado");
-        }*/
+        }
     }
 
     public void DespausarJuego()
