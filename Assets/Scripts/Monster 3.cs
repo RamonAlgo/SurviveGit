@@ -20,7 +20,7 @@ public class Monster3 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
         SetRandomDirection();
         gameObject.SetActive(false);
-        Invoke("ActivateMonster", 10.0f);
+        Invoke("ActivateMonster", 20.0f);
     }
 
     private void Update()
