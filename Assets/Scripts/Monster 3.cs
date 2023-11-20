@@ -9,11 +9,18 @@ public class Monster3 : MonoBehaviour
     private Transform player; // El transform del jugador
     private Vector3 randomDirection; // Dirección aleatoria
     private float nextDirectionChangeTime;
-
+    private void ActivateMonster()
+    {
+        // Activa el monstruo y establece la dirección inicial
+        gameObject.SetActive(true);
+        SetRandomDirection();
+    }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
         SetRandomDirection();
+        gameObject.SetActive(false);
+        Invoke("ActivateMonster", 10.0f);
     }
 
     private void Update()

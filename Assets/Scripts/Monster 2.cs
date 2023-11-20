@@ -10,11 +10,22 @@ public class Monster2 : MonoBehaviour
     private Vector3 initialPosition; // La posición inicial del monstruo
     private float startTime;
 
+    void ActivateMonster()
+    {
+        // Activa el monstruo
+        gameObject.SetActive(true);
+    }
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // Busca al jugador por el tag "Player"
         initialPosition = transform.position;
         startTime = Time.time;
+
+        gameObject.SetActive(false);
+
+        Invoke("ActivateMonster", 10.0f);
+
     }
 
     private void Update()
