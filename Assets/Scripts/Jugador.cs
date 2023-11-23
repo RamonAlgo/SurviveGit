@@ -31,7 +31,12 @@ public class PlayerController : MonoBehaviour
         // Obtiene la referencia al transform del jugador
         playerTransform = transform;
     }
-
+    // Método para incrementar la velocidad
+    private void IncrementarVelocidad(float incremento)
+    {
+        velocidadHorizontal += incremento;
+        velocidadVertical += incremento;
+    }
     void Update()
     {
         float direccionHorizontal = Input.GetAxisRaw("Horizontal");
@@ -62,6 +67,7 @@ public class PlayerController : MonoBehaviour
             playerTransform.localScale = new Vector3(-Mathf.Abs(playerTransform.localScale.x), playerTransform.localScale.y, playerTransform.localScale.z);
         }
     }
+    // Método para incrementar la velocidad
 
     private void OnTriggerEnter2D(Collider2D objecteTocat)
     {
@@ -69,6 +75,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Game Over");
+        }
+        else if (objecteTocat.tag == "Buf_speed")
+        {
+            IncrementarVelocidad(3f); // Aumentar la velocidad en 3
+            Destroy(objecteTocat.gameObject); // Destruye el objeto Buf_speed
         }
     }
 
