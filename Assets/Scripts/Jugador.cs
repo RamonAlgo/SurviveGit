@@ -23,10 +23,10 @@ public class PlayerController : MonoBehaviour
         velocidadVertical = 8f;
 
         // Establece los límites basados en las coordenadas proporcionadas
-        minX = -88.03f;  // Límite izquierdo
-        maxX = 88.11f;   // Límite derecho
-        minY = -48.43f;  // Límite inferior
-        maxY = 48.90f;   // Límite superior
+        minX = -82.73f;  // Límite izquierdo
+        maxX = 68.52f;   // Límite derecho
+        minY = -66.23f;  // Límite inferior
+        maxY = 62.27f;   // Límite superior
 
         // Obtiene la referencia al transform del jugador
         playerTransform = transform;
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         // Actualiza la posición del jugador
         playerTransform.position = nuevaPosicion;
 
+        Debug.Log(playerTransform.position);
         // Voltea el jugador según la dirección
         if (direccionHorizontal > 0 && !mirandoDerecha)
         {
