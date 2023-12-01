@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
+    public static float globalMoveSpeed = 5.0f;
 
     private Transform player; // El transform del jugador
 
@@ -17,11 +18,18 @@ public class Monster : MonoBehaviour
     {
         if (player != null)
         {
-            // Calcula la dirección hacia el jugador
+            // Usa globalMoveSpeed para el movimiento
             Vector3 direction = (player.position - transform.position).normalized;
-
-            // Mueve el monstruo hacia el jugador
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
-        }
+            // Movimiento hacia el jugador
+            transform.Translate(direction * globalMoveSpeed * Time.deltaTime);
+        } 
+    }
+    public static void IncreaseGlobalSpeed()
+    {
+        globalMoveSpeed += 2; // Incrementa la velocidad global
+    }
+    public static void DecreaseGlobalSpeed()
+    {
+        globalMoveSpeed -= 1; // Incrementa la velocidad global
     }
 }
