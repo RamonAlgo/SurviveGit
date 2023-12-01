@@ -54,8 +54,6 @@ public class PlayerController : MonoBehaviour
 
         // Actualiza la posición del jugador
         playerTransform.position = nuevaPosicion;
-
-        Debug.Log(playerTransform.position);
         // Voltea el jugador según la dirección
         if (direccionHorizontal > 0 && !mirandoDerecha)
         {
