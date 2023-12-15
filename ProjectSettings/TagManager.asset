@@ -10,6 +10,8 @@ TagManager:
   - Balas
   - Texto
   - buf
+  - Buf_speed
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -52,6 +54,9 @@ TagManager:
     locked: 0
   - name: Personajes
     uniqueID: 2202194563
+    locked: 0
+  - name: teleport
+    uniqueID: 568649521
     locked: 0
   - name: buffs
     uniqueID: 2874404713

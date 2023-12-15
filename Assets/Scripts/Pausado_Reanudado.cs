@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameControl : MonoBehaviour
+public class Pausado_Reanuadado : MonoBehaviour
 {
     //boton reanudar juego public Button resumeButton; // Botón para reanudar el juego
     public Text timeText; // Texto para mostrar el tiempo transcurrido
@@ -13,9 +14,10 @@ public class GameControl : MonoBehaviour
     public Text TextRes2;
     public Button resultadoButton3;
     public Text TextRes3;
+    public Text TextPuntos;//Texto donde se muestran los puntos
     private float gameTime = 0f; // Tiempo transcurrido del juego
     private bool isPaused = false; // Estado de pausa del juego
-
+    private int puntos = 0;
     private int correctAnswer;
     void Start()
     {
@@ -31,6 +33,13 @@ public class GameControl : MonoBehaviour
         TextRes1.gameObject.SetActive(false);
         TextRes2.gameObject.SetActive(false);
         TextRes3.gameObject.SetActive(false);
+        Cursor.visible = false;
+        
+
+        TextPuntos.text = "Puntos: 0";
+        PlayerPrefs.SetString("Puntos_totales", "Puntos: 0");
+        PlayerPrefs.Save();
+
     }
 
     void Update()
@@ -54,6 +63,9 @@ public class GameControl : MonoBehaviour
         int minutes = (int)gameTime / 60;
         int seconds = (int)gameTime % 60;
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        PlayerPrefs.SetString("Tiempo_Total", string.Format("{0:00}:{1:00}", minutes, seconds));
+        PlayerPrefs.Save();
+
     }
 
     void CheckForPause()
@@ -69,9 +81,10 @@ public class GameControl : MonoBehaviour
     {
         isPaused = true;
         Time.timeScale = 0; // Detener el tiempo en el juego
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         // Mostrar los elementos de la UI
-        
         OperacionMates.gameObject.SetActive(true);
         resultadoButton1.gameObject.SetActive(true);
         resultadoButton2.gameObject.SetActive(true);
@@ -79,8 +92,6 @@ public class GameControl : MonoBehaviour
         TextRes1.gameObject.SetActive(true);
         TextRes2.gameObject.SetActive(true);
         TextRes3.gameObject.SetActive(true);
-        
-
         GenerateMathQuestion(); // Generar una nueva pregunta matemática
     }
 
@@ -90,6 +101,11 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1; // Reanudar el tiempo en el juego
         gameTime++; // Evitar que el juego se pause inmediatamente después de reanudar
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Habilitar la tecla espacio
+
         // Ocultar los elementos de la UI
         OperacionMates.gameObject.SetActive(false);
         resultadoButton1.gameObject.SetActive(false);
@@ -98,7 +114,6 @@ public class GameControl : MonoBehaviour
         TextRes1.gameObject.SetActive(false);
         TextRes2.gameObject.SetActive(false);
         TextRes3.gameObject.SetActive(false);
-        
     }
     void GenerateMathQuestion()
     {
@@ -149,6 +164,9 @@ public class GameControl : MonoBehaviour
         if (selectedAnswer == correctAnswer)
         {
             Monster.DecreaseGlobalSpeed(); //Disminuye la velocidad global de los monstruos
+            puntos++;
+            TextPuntos.text = "Puntos: " + puntos.ToString();
+            PlayerPrefs.SetString("Puntos_totales", "Puntos: " + puntos.ToString());
             ResumeGame();
         }
         else

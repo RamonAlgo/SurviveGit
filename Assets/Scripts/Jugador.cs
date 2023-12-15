@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         playerTransform = transform;
     }
     // Método para incrementar la velocidad
-    private void IncrementarVelocidad(float incremento)
+    private void IncrementarVelocidad(float incremento)  
     {
         velocidadHorizontal += incremento;
         velocidadVertical += incremento;
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (objecteTocat.tag == "Buf_speed")
         {
-            IncrementarVelocidad(3f); // Aumentar la velocidad en 3
+            IncrementarVelocidad(1f); // Aumentar la velocidad en 1
             Destroy(objecteTocat.gameObject); // Destruye el objeto Buf_speed
         }
     }

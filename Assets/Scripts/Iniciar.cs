@@ -22,5 +22,8 @@ public class CambiarEscena : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu"); // cambiem a la escena Info
     }
+    public void CambiarAEscenaCredits()
+    {
+        SceneManager.LoadScene("Credits"); // cambiem a la escena Credits
+    }
 }
-

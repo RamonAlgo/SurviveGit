@@ -7,6 +7,7 @@ public class Disparo : MonoBehaviour
     public GameObject balaPrefab; // Prefab de la bala
     public float velocidadBala = 10f;
     private PlayerController playerController;
+    [SerializeField] private Pausado_Reanuadado pausado;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class Disparo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))// && !pausado.keysEnabled
         {
             DispararBala();
         }
